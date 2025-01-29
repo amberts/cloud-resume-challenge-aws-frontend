@@ -32,3 +32,44 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+///////// Visitor Counter /////////
+
+// Est. variables to be the page elements relevant to the counter
+let counterDisplayElem = document.querySelector('.counter-display');
+let counterMinusElem = document.querySelector('.counter-minus');
+let counterPlusElem = document.querySelector('.counter-plus');
+
+// Est. variable that will be the count
+let count = 0;
+
+// Create a function to update the display when count variable changes
+function updateDisplay(){
+    counterDisplayElem.innerHTML = count;
+}
+
+function naughty(){
+    counterDisplayElem.innerHTML = `Liar, liar, pants on fire!`;
+}
+
+// Display current count when page loads (before any clicking happens)
+updateDisplay();
+
+// Add event listeners
+counterPlusElem.addEventListener("click",() => {
+    count++;
+//    updateDisplay();
+    naughty();
+});
+
+counterMinusElem.addEventListener("click",() => {
+    count--;
+//    updateDisplay();
+    naughty();
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    count++;
+    updateDisplay();
+});  
